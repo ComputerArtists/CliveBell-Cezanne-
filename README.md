@@ -2,17 +2,6 @@
 
 Zwei generative Kunstwerke in **Processing**, inspiriert von Paul Cézanne: Die Skripte übersetzen seine charakteristische Malweise – pastose Pinselstriche, multiple Perspektiven, konstruktive Formauflösung und vibrierende Farben – in animierten, algorithmischen Code.
 
-<grok-card data-id="3d2250" data-type="image_card"></grok-card>
-
-
-
-<grok-card data-id="1a51b4" data-type="image_card"></grok-card>
-
-
-
-<grok-card data-id="7f37a6" data-type="image_card"></grok-card>
-
-
 ## Die zwei Skripte
 
 ### 1. Cézanne Perspektive mit Entfaltung (`cezanne_unfolded.pde`)
