@@ -1,59 +1,57 @@
 # Cézanne Inspired Generative Art
 
-Zwei generative Kunstwerke in **Processing**, inspiriert von Paul Cézanne: Die Skripte übersetzen seine charakteristische Malweise – pastose Pinselstriche, multiple Perspektiven, konstruktive Formauflösung und vibrierende Farben – in animierten, algorithmischen Code.
+Zwei Processing-Skripte, die die Malweise von Paul Cézanne auf unterschiedliche Weise in generative, animierte Kunst übersetzen. Beide Werke sind vollständig lauffähig in Processing 3/4/5 und benötigen keine zusätzlichen Bibliotheken.
 
 ## Die zwei Skripte
 
 ### 1. Cézanne Perspektive mit Entfaltung (`cezanne_unfolded.pde`)
-Ein klassisches Stillleben (Äpfel, Birnen, Tisch, Flasche), das Cézannes berühmte Mehrfachperspektive nachahmt.  
-- Objekte werden gleichzeitig aus mehreren Blickwinkeln dargestellt (oben, vorne, seitlich)  
-- Langsame „Entfaltung“ über die Zeit – die Perspektiven verschieben sich sanft, als würde man um den Tisch herumgehen  
-- Pastose, kantige Pinselstriche mit Noise und Rotation  
-- Farben „atmen“ leicht durch subtile Helligkeits- und Sättigungsänderungen  
 
-### 2. Cézanne Gitter-Struktur (`cezanne_grid.pde`)
-Eine geometrische Dekonstruktion eines Stilllebens:  
-- Das Bild wird in ein Gitter aus kleinen Flächen zerlegt  
-- Jede Zelle erhält individuelle pastose Striche und Farbtöne  
-- Farben und Licht wandern langsam über das Gitter  
-- Leichte Verzerrungen verhindern sterile Perfektion  
-- Meditative, fast kubistische Wirkung
+Ein digitales Stillleben aus einfachen 3D-Primitiven (Spheres, Boxes, Cylinders), das Cézannes berühmte Mehrfachperspektive nachahmt.
 
-<grok-card data-id="1db1c7" data-type="image_card"></grok-card>
+Die Szene zeigt ein klassisches Motiv: Äpfel und Birnen, eine Flasche/Vase, einen Teller und eine Tischplatte mit gefalteter Decke. Statt einer festen Perspektive „entfaltet“ sich die Komposition langsam über die Zeit – Kamera und Objekte verschieben sich sanft in unterschiedliche Blickwinkel (von oben, seitlich, frontal). Dadurch entsteht der typische Cézanne-Effekt, bei dem der Tisch gleichzeitig aus mehreren Richtungen sichtbar scheint.
 
+Die Oberflächen wirken pastos durch Noise-basierte Texturen oder Vertex-Displacement, die Farben bleiben in der warmen, erdigen Cézanne-Palette. Das Ergebnis ist eine meditative 3D-Animation, die analytische Konstruktion mit lebendiger Bewegung verbindet.
 
+### 2. Cézanne Patchwork / Gitter-Struktur (`cezanne_patchwork.pde`)
 
-<grok-card data-id="c866e6" data-type="image_card"></grok-card>
+Eine abstrakte Hommage an Cézannes späte „constructive stroke“-Technik – die Bildfläche wird in lauter kleine Farbflächen (patches) zerlegt.
 
+Das gesamte Bild ist ein feines Gitter (standardmäßig 20×20 Zellen). Jede Zelle wird mit Rechtecken, Ellipsen oder einer Mischung aus beidem gefüllt. Die Formen sind leicht skaliert und zentriert, die Farben stammen aus einer gedämpften, cézannesken Palette (HSB-Modus mit Perlin-Noise für organische Variation).
 
-## Features (gemeinsam)
-- Authentische Cézanne-Palette (erdige Rottöne, Grün, Blau, Ocker, Violett)
-- Kurze, überlagernde Pinselstriche für pastosen Ölfarbe-Look
-- Sanfte Animation mit Perlin-Noise
-- Vollständig anpassbare Parameter
-- Export-Funktion für Bilder und Videos
+Über die Zeit wandern die Farben sanft durch Noise-Offset – das Bild „atmet“ und vibriert. Interaktiv steuerbar:
+- Maus X → Geschwindigkeit der Farbverschiebung
+- Maus Y → Größe der Flächen
+- Tasten 1/2/3 → Modus Rechtecke / Ellipsen / Mischung
+
+Das Ergebnis ist eine beruhigende, mosaikartige Animation, die an Cézannes facettenreiche Pinselstriche erinnert.
 
 ## Installation & Start
-1. Processing herunterladen: https://processing.org/download
-2. Repository klonen oder herunterladen
-3. Die gewünschte `.pde`-Datei in der Processing IDE öffnen
-4. Play drücken – fertig!
 
-## Steuerung (in beiden Skripten)
-| Taste/Maus          | Funktion                              |
-|---------------------|---------------------------------------|
-| `Space`             | Neues Farbschema generieren           |
-| `R`                 | Reset / Neustart                      |
-| `S`                 | Aktuellen Frame als PNG speichern     |
-| `V`                 | Videoaufzeichnung starten/stoppen     |
-| `Mausklick`         | (Grid-Version) Klick auf Zelle für lokale Veränderung |
-| `+/-`               | Animationsgeschwindigkeit ändern      |
+1. Processing herunterladen: https://processing.org/download
+2. Repository klonen oder die beiden `.pde`-Dateien herunterladen
+3. In der Processing IDE die gewünschte Datei öffnen
+4. Play drücken – los geht’s!
+
+## Steuerung
+
+### Gemeinsam
+- `s` → Aktuellen Frame als PNG speichern
+
+### cezanne_patchwork.pde (zusätzlich)
+- Maus X → Animationsgeschwindigkeit
+- Maus Y → Größe der Flächen
+- `1` → Nur Rechtecke
+- `2` → Nur Ellipsen
+- `3` → Mischung (Schachbrett)
+
+### cezanne_unfolded.pde
+(je nach Version: typischerweise Zeit-basierte Animation ohne weitere Interaktion – erweiterbar auf Wunsch)
 
 ## Anpassung
-Wichtige Parameter stehen ganz oben in jeder Datei:
 
+Beide Skripte haben wichtige Parameter ganz oben zum einfachen Ändern:
+
+**cezanne_patchwork.pde**
 ```java
-color[] palette = {...};       // Cézanne-Farbpalette
-float brushSize = 12;          // Strichgröße
-int gridSize = 30;             // Nur Grid-Version: Gitterauflösung
-float unfoldSpeed = 0.0005;    // Nur Unfolded: Geschwindigkeit der Entfaltung
+int gridSize = 20;     // Gitterauflösung (mehr = feiner)
+int mode = 0;          // Startmodus (0/1/2)
